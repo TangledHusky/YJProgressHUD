@@ -1,5 +1,7 @@
 # YJProgressHUD
 
+详细图文教程：http://www.cnblogs.com/yajunLi/p/5822702.html
+
 MBProgressHUD的使用，临时总结了几款最常用的使用场景：
 
 1、提示消息
