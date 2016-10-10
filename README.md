@@ -53,6 +53,9 @@ MBProgressHUD的使用，临时总结了几款最常用的使用场景：
  [YJProgressHUD showMsgWithoutView:@"显示在最上层"];
 
  
+6、自定义动画（序列帧实现）
+
+ [YJProgressHUD showCustomAnimation:@"随机动画" withImgArry:imgArry inview:self.view];
 
  
 
