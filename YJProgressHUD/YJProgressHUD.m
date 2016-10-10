@@ -8,7 +8,6 @@
 
 #import "YJProgressHUD.h"
 
-
 @implementation YJProgressHUD
 
 +(instancetype)shareinstance{
@@ -41,11 +40,15 @@
     
     [YJProgressHUD shareinstance].hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
     //[YJProgressHUD shareinstance].hud.dimBackground = YES;    //是否显示透明背景
+    
+    //是否设置黑色背景，这两句配合使用
     [YJProgressHUD shareinstance].hud.color = [UIColor blackColor];
+    [YJProgressHUD shareinstance].hud.contentColor = [UIColor whiteColor];
+    
     [[YJProgressHUD shareinstance].hud setMargin:10];
     [[YJProgressHUD shareinstance].hud setRemoveFromSuperViewOnHide:YES];
     [YJProgressHUD shareinstance].hud.detailsLabel.text = msg;
-    [YJProgressHUD shareinstance].hud.contentColor = [UIColor whiteColor];
+
     [YJProgressHUD shareinstance].hud.detailsLabel.font = [UIFont systemFontOfSize:14];
     switch ((NSInteger)myMode) {
         case YJProgressModeOnlyText:
@@ -56,19 +59,11 @@
             [YJProgressHUD shareinstance].hud.mode = MBProgressHUDModeIndeterminate;
             break;
 
-        case YJProgressModeCircleLoading:
-            [YJProgressHUD shareinstance].hud.mode = MBProgressHUDModeDeterminate;
-          
-            break;
-        case YJProgressModeCustomAnimation:
-            [YJProgressHUD shareinstance].hud.mode = MBProgressHUDModeCustomView;
-            if (customImgView) {
-                [YJProgressHUD shareinstance].hud.customView = customImgView;
-                [YJProgressHUD shareinstance].hud.bezelView.color = [UIColor clearColor];
-            }
-            
-            break;
-
+//        case YJProgressModeCircleLoading:{
+//            [YJProgressHUD shareinstance].hud.mode = MBProgressHUDModeDeterminate;
+//          
+//            break;
+//        }
         case YJProgressModeSuccess:
             [YJProgressHUD shareinstance].hud.mode = MBProgressHUDModeCustomView;
             [YJProgressHUD shareinstance].hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"success"]];
@@ -96,9 +91,6 @@
 }
 
 
-+(void)showOnlyText:(NSString *)msg inView:(UIView *)view{
-    [self show:msg inView:view mode:YJProgressModeOnlyText];
-}
 
 +(void)showMessage:(NSString *)msg inView:(UIView *)view afterDelayTime:(NSInteger)delay{
     [self show:msg inView:view mode:YJProgressModeOnlyText];
@@ -115,6 +107,17 @@
 +(void)showProgress:(NSString *)msg inView:(UIView *)view{
     [self show:msg inView:view mode:YJProgressModeLoading];
 }
+
++(MBProgressHUD *)showProgressCircle:(NSString *)msg inView:(UIView *)view{
+    if (view == nil) view = (UIView*)[UIApplication sharedApplication].delegate.window;
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+    hud.mode = MBProgressHUDModeAnnularDeterminate;
+    hud.labelText = msg;
+    return hud;
+    
+    
+}
+
 
 +(void)showMsgWithoutView:(NSString *)msg{
     UIWindow *view = [[UIApplication sharedApplication].windows lastObject];
@@ -133,6 +136,8 @@
     [showImageView startAnimating];
     
     [self show:msg inView:view mode:YJProgressModeCustomAnimation customImgView:showImageView];
+    
+    //这句话是为了展示几秒，实际要去掉
     [[YJProgressHUD shareinstance].hud hideAnimated:YES afterDelay:8.0];
     
     

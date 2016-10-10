@@ -13,7 +13,10 @@
 
 @end
 
-@implementation ViewController
+@implementation ViewController{
+     MBProgressHUD *HUD;
+    float pro;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -38,13 +41,13 @@
     
     UIButton *btn3 = [[UIButton alloc] initWithFrame:CGRectMake(15, 70, 150, 20)];
     [btn3 addTarget:self action:@selector(btnTest:) forControlEvents:UIControlEventTouchUpInside];
-    [btn3 setTitle:@"加载中" forState:UIControlStateNormal];
+    [btn3 setTitle:@"加载中（菊花）" forState:UIControlStateNormal];
     btn3.tag=1003;
     [test addSubview:btn3];
     
     UIButton *btn4 = [[UIButton alloc] initWithFrame:CGRectMake(15, 100, 150, 20)];
     [btn4 addTarget:self action:@selector(btnTest:) forControlEvents:UIControlEventTouchUpInside];
-    [btn4 setTitle:@"提示消息，1秒隐藏" forState:UIControlStateNormal];
+    [btn4 setTitle:@"加载中（转圈）" forState:UIControlStateNormal];
     btn4.tag=1004;
     [test addSubview:btn4];
     
@@ -79,7 +82,13 @@
             break;
         }
         case 1004:{
-            [YJProgressHUD showMessage:@"请输入xxx" inView:self.view afterDelayTime:2.0];
+            HUD = [YJProgressHUD showProgressCircle:@"Loading..." inView:nil];
+            
+            //用定时器模拟数据
+            pro = 0.01;
+            [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(updateProgress) userInfo:nil repeats:YES];
+            
+            
             break;
         }
         case 1005:{
@@ -94,12 +103,26 @@
             break;
     }
     
-    
+    if (sender.tag == 1004) {
+        return;
+    }
     //用于关闭当前提示
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [YJProgressHUD hide];
 
     });
+}
+
+-(void)updateProgress{
+    if (pro>=1) {
+        [HUD hideAnimated:YES];
+        HUD = nil;
+    }
+    
+    pro = pro + 0.01;
+    HUD.progress = pro;
+    
+    
 }
 
 

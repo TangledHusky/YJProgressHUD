@@ -35,20 +35,20 @@ typedef enum{
 //隐藏
 +(void)hide;
 
-//只显示文字
-+(void)showOnlyText:(NSString *)msg inView:(UIView *)view;
-
-//显示进度
-+(void)showProgress:(NSString *)msg inView:(UIView *)view;
-
-//显示成功提示
-+(void)showSuccess:(NSString *)msg inview:(UIView *)view;
-
 //显示提示（1秒后消失）
 +(void)showMessage:(NSString *)msg inView:(UIView *)view;
 
 //显示提示（N秒后消失）
 +(void)showMessage:(NSString *)msg inView:(UIView *)view afterDelayTime:(NSInteger)delay;
+
+//显示进度(转圈)
++(MBProgressHUD *)showProgressCircle:(NSString *)msg inView:(UIView *)view;
+
+//显示进度(菊花)
++(void)showProgress:(NSString *)msg inView:(UIView *)view;
+
+//显示成功提示
++(void)showSuccess:(NSString *)msg inview:(UIView *)view;
 
 //在最上层显示
 +(void)showMsgWithoutView:(NSString *)msg;
