@@ -54,6 +54,12 @@
     btn5.tag=1005;
     [test addSubview:btn5];
     
+    UIButton *btn6 = [[UIButton alloc] initWithFrame:CGRectMake(15, 160, 150, 20)];
+    [btn6 addTarget:self action:@selector(btnTest:) forControlEvents:UIControlEventTouchUpInside];
+    [btn6 setTitle:@"随机动画" forState:UIControlStateNormal];
+    btn6.tag=1006;
+    [test addSubview:btn6];
+    
 }
 
 
@@ -80,6 +86,10 @@
             [YJProgressHUD showMsgWithoutView:@"显示在最上层"];
             break;
         }
+        case 1006:{            
+            [YJProgressHUD showCustomAnimation:@"随机动画" withImgArry:[self getRandomImgArry] inview:self.view];
+            break;
+        }
         default:
             break;
     }
@@ -93,4 +103,52 @@
 }
 
 
+-(NSArray *)getRandomImgArry{
+    NSMutableArray *imageArr = [NSMutableArray array];
+    //1 - 8 的随机数
+    int y = (arc4random() % 8) + 1;
+    
+    int I = 0;
+    
+    if (y == 1) {
+        
+        I = 12 + 1;
+        
+    } else if (y == 2) {
+        
+        I = 8 + 1;
+        
+    }else if (y == 3) {
+        
+        I = 16 + 1;
+        
+    }else if (y == 4) {
+        
+        I = 50 + 1;
+        
+    }else if (y == 5) {
+        
+        I = 23 + 1;
+        
+    }else if (y == 6) {
+        
+        I = 13 + 1;
+        
+    }else if (y == 7) {
+        
+        I = 22 + 1;
+        
+    }else if (y == 8) {
+        
+        I = 70 + 1;
+    }
+    
+    
+    for (int i = 1; i < I; i ++ ) {
+        
+        [imageArr addObject:[UIImage imageNamed:[NSString stringWithFormat:@"loading_%d_%d",y,i]]];
+    }
+    
+    return [imageArr copy];
+}
 @end

@@ -24,6 +24,10 @@
 }
 
 +(void)show:(NSString *)msg inView:(UIView *)view mode:(YJProgressMode *)myMode{
+    [self show:msg inView:view mode:myMode customImgView:nil];
+}
+
++(void)show:(NSString *)msg inView:(UIView *)view mode:(YJProgressMode *)myMode customImgView:(UIImageView *)customImgView{
     //如果已有弹框，先消失
     if ([YJProgressHUD shareinstance].hud != nil) {
         [[YJProgressHUD shareinstance].hud hideAnimated:YES];
@@ -54,6 +58,15 @@
 
         case YJProgressModeCircleLoading:
             [YJProgressHUD shareinstance].hud.mode = MBProgressHUDModeDeterminate;
+          
+            break;
+        case YJProgressModeCustomAnimation:
+            [YJProgressHUD shareinstance].hud.mode = MBProgressHUDModeCustomView;
+            if (customImgView) {
+                [YJProgressHUD shareinstance].hud.customView = customImgView;
+                [YJProgressHUD shareinstance].hud.bezelView.color = [UIColor clearColor];
+            }
+            
             break;
 
         case YJProgressModeSuccess:
@@ -107,6 +120,21 @@
     UIWindow *view = [[UIApplication sharedApplication].windows lastObject];
     [self show:msg inView:view mode:YJProgressModeOnlyText];
     [[YJProgressHUD shareinstance].hud hideAnimated:YES afterDelay:1.0];
+    
+}
+
++(void)showCustomAnimation:(NSString *)msg withImgArry:(NSArray *)imgArry inview:(UIView *)view{
+    
+    UIImageView *showImageView = [[UIImageView alloc] init];
+    
+    showImageView.animationImages = imgArry;
+    [showImageView setAnimationRepeatCount:0];
+    [showImageView setAnimationDuration:(imgArry.count + 1) * 0.075];
+    [showImageView startAnimating];
+    
+    [self show:msg inView:view mode:YJProgressModeCustomAnimation customImgView:showImageView];
+    [[YJProgressHUD shareinstance].hud hideAnimated:YES afterDelay:8.0];
+    
     
 }
 

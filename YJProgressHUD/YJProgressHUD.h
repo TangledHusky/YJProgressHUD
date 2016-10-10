@@ -13,6 +13,7 @@ typedef enum{
     YJProgressModeOnlyText=10,           //文字
     YJProgressModeLoading,              //加载菊花
     YJProgressModeCircleLoading,         //加载圆形
+    YJProgressModeCustomAnimation,         //自定义加载动画（序列帧实现）
     YJProgressModeSuccess               //成功
     
 }YJProgressMode;
@@ -52,5 +53,7 @@ typedef enum{
 //在最上层显示
 +(void)showMsgWithoutView:(NSString *)msg;
 
+//显示自定义动画(自定义动画序列帧  找UI做就可以了)
++(void)showCustomAnimation:(NSString *)msg withImgArry:(NSArray *)imgArry inview:(UIView *)view;
 
 @end
