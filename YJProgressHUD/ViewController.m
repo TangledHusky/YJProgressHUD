@@ -70,7 +70,10 @@
     switch (sender.tag) {
         case 1001:{
             
-            [YJProgressHUD showMessage:@"只显示文字" inView:self.view];
+            [YJProgressHUD showMessage:@"显示文字，1s隐藏" inView:self.view];
+            
+            //如果想设置N秒隐藏，用这个
+            [YJProgressHUD showMessage:@"显示文字，Ns隐藏" inView:self.view afterDelayTime:3.0];
             break;
         }
         case 1002:{
@@ -78,13 +81,15 @@
             break;
         }
         case 1003:{
+            //菊花
             [YJProgressHUD showProgress:@"加载中..." inView:self.view];
             break;
         }
         case 1004:{
+            //环形进度
             HUD = [YJProgressHUD showProgressCircle:@"Loading..." inView:nil];
             
-            //用定时器模拟数据
+            //用定时器模拟数据，下面对HUD进行设置进度值即可，正式使用时，获取到afn下载的进度，同理设置就行
             pro = 0.01;
             [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(updateProgress) userInfo:nil repeats:YES];
             
@@ -92,7 +97,8 @@
             break;
         }
         case 1005:{
-            [YJProgressHUD showMsgWithoutView:@"显示在最上层"];
+            //直接显示最上层，不指定view
+            [YJProgressHUD showMsgWithoutView:@"显示最上层"];
             break;
         }
         case 1006:{
