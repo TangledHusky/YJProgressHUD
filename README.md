@@ -15,13 +15,13 @@
 </pre>
 </div>
 <p>　　</p>
-<p>　　</p>
+
 <p>2、加载成功</p>
 <div class="cnblogs_Highlighter">
 <pre class="brush:objc;gutter:true;">[YJProgressHUD showSuccess:@"加载成功" inview:self.view];
 </pre>
 </div>
-<p>　　</p>
+
 <p><span style="line-height: 1.5;">&nbsp;</span></p>
 <p>3、加载中</p>
 <div class="cnblogs_Highlighter">
@@ -29,14 +29,14 @@
  [YJProgressHUD showProgress:@"加载中..." inView:self.view];
 </pre>
 </div>
-<p>&nbsp;</p>
+
 <p><span style="line-height: 1.5;">4、自定义动画（序列帧实现）</span></p>
 <div class="cnblogs_Highlighter">
 <pre class="brush:objc;gutter:true;"> //使用这种，必须保证Assets里，添加了图片组，这里提示内容不写（用@""），就只显示动画，写了内容，是一起显示
  [YJProgressHUD showCustomAnimation:@"" withImgArry:[self getRandomImgArry] inview:self.view];
 </pre>
 </div>
-<p>　　</p>
+
 <p><span style="line-height: 1.5;">5、隐藏提示框</span></p>
 <div class="cnblogs_Highlighter">
 <pre class="brush:objc;gutter:true;">[YJProgressHUD hide];
