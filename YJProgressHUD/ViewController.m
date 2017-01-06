@@ -95,19 +95,26 @@
             [YJProgressHUD showMsgWithoutView:@"显示在最上层"];
             break;
         }
-        case 1006:{            
-            [YJProgressHUD showCustomAnimation:@"随机动画" withImgArry:[self getRandomImgArry] inview:self.view];
+        case 1006:{
+            //使用这种，必须保证Assets里，添加了图片组，这里提示内容不写（用@""），就只显示动画，写了内容，是一起显示
+            [YJProgressHUD showCustomAnimation:@"" withImgArry:[self getRandomImgArry] inview:self.view];
             break;
         }
         default:
             break;
     }
     
+    
+    
+    
+    //下面是设置
     if (sender.tag == 1004) {
         return;
     }
-    //用于关闭当前提示
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    
+    
+    //这里是我手动设置的停止动画，实际使用时，可以在数据请求结束时，用 [YJProgressHUD hide]; 结束动画
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [YJProgressHUD hide];
 
     });
@@ -126,6 +133,11 @@
 }
 
 
+/**
+ 自己构造随机一种动画，实际使用，不用这样
+
+ @return <#return value description#>
+ */
 -(NSArray *)getRandomImgArry{
     NSMutableArray *imageArr = [NSMutableArray array];
     //1 - 8 的随机数

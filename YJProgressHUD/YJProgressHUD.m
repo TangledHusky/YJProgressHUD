@@ -39,6 +39,8 @@
     }
     
     [YJProgressHUD shareinstance].hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+    
+    //这里设置是否显示遮罩层
     //[YJProgressHUD shareinstance].hud.dimBackground = YES;    //是否显示透明背景
     
     //是否设置黑色背景，这两句配合使用
@@ -59,11 +61,16 @@
             [YJProgressHUD shareinstance].hud.mode = MBProgressHUDModeIndeterminate;
             break;
 
-//        case YJProgressModeCircleLoading:{
-//            [YJProgressHUD shareinstance].hud.mode = MBProgressHUDModeDeterminate;
-//          
-//            break;
-//        }
+        case YJProgressModeCustomAnimation:
+            //这里设置动画的背景色
+            [YJProgressHUD shareinstance].hud.color = [UIColor yellowColor];
+            
+            
+            [YJProgressHUD shareinstance].hud.mode = MBProgressHUDModeCustomView;
+            [YJProgressHUD shareinstance].hud.customView = customImgView;
+            
+            break;
+
         case YJProgressModeSuccess:
             [YJProgressHUD shareinstance].hud.mode = MBProgressHUDModeCustomView;
             [YJProgressHUD shareinstance].hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"success"]];
@@ -129,7 +136,6 @@
 +(void)showCustomAnimation:(NSString *)msg withImgArry:(NSArray *)imgArry inview:(UIView *)view{
     
     UIImageView *showImageView = [[UIImageView alloc] init];
-    
     showImageView.animationImages = imgArry;
     [showImageView setAnimationRepeatCount:0];
     [showImageView setAnimationDuration:(imgArry.count + 1) * 0.075];
@@ -137,10 +143,7 @@
     
     [self show:msg inView:view mode:YJProgressModeCustomAnimation customImgView:showImageView];
     
-    //这句话是为了展示几秒，实际要去掉
-    [[YJProgressHUD shareinstance].hud hideAnimated:YES afterDelay:8.0];
-    
-    
+
 }
 
 @end
