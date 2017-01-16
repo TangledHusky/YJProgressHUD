@@ -74,6 +74,10 @@
             
             break;
         }
+        case YJProgressModeCustomerImage:
+            [YJProgressHUD shareinstance].hud.mode = MBProgressHUDModeCustomView;
+            [YJProgressHUD shareinstance].hud.customView = customImgView;
+            break;
 
         case YJProgressModeCustomAnimation:
             //这里设置动画的背景色
@@ -122,6 +126,12 @@
     [self show:msg inView:view mode:YJProgressModeSuccess];
     [[YJProgressHUD shareinstance].hud hideAnimated:YES afterDelay:1.0];
     
+}
+
++(void)showMsgWithImage:(NSString *)msg imageName:(NSString *)imageName inview:(UIView *)view{
+    UIImageView *img = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName]];
+    [self show:msg inView:view mode:YJProgressModeCustomerImage customImgView:img];
+    [[YJProgressHUD shareinstance].hud hideAnimated:YES afterDelay:1.0];
 }
 
 

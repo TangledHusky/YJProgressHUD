@@ -22,7 +22,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    UIView *test = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 250)];
+    UIView *test = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 280)];
     test.center = self.view.center;
     test.backgroundColor = [UIColor lightGrayColor];
     [self.view addSubview:test];
@@ -69,6 +69,12 @@
     btn7.tag=1007;
     [test addSubview:btn7];
     
+    UIButton *btn8 = [[UIButton alloc] initWithFrame:CGRectMake(15, 220, 200, 20)];
+    [btn8 addTarget:self action:@selector(btnTest:) forControlEvents:UIControlEventTouchUpInside];
+    [btn8 setTitle:@"自定义图片+文字" forState:UIControlStateNormal];
+    btn8.tag=1008;
+    [test addSubview:btn8];
+    
 }
 
 
@@ -113,6 +119,11 @@
             //用定时器模拟数据，下面对HUD进行设置进度值即可，正式使用时，获取到afn下载的进度，同理设置就行
             pro = 0.01;
             [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(updateProgress) userInfo:nil repeats:YES];
+            break;
+        }
+        case 1008:{
+            //加载自定义图片，含文字
+            [YJProgressHUD showMsgWithImage:@"很遗憾，失败了" imageName:@"fail" inview:self.view];
             break;
         }
         default:
