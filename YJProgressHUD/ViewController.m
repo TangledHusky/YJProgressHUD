@@ -22,7 +22,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    UIView *test = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+    UIView *test = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 250)];
     test.center = self.view.center;
     test.backgroundColor = [UIColor lightGrayColor];
     [self.view addSubview:test];
@@ -47,7 +47,7 @@
     
     UIButton *btn4 = [[UIButton alloc] initWithFrame:CGRectMake(15, 100, 150, 20)];
     [btn4 addTarget:self action:@selector(btnTest:) forControlEvents:UIControlEventTouchUpInside];
-    [btn4 setTitle:@"加载中（转圈）" forState:UIControlStateNormal];
+    [btn4 setTitle:@"加载中（环形）" forState:UIControlStateNormal];
     btn4.tag=1004;
     [test addSubview:btn4];
     
@@ -63,6 +63,12 @@
     btn6.tag=1006;
     [test addSubview:btn6];
     
+    UIButton *btn7 = [[UIButton alloc] initWithFrame:CGRectMake(15, 190, 200, 20)];
+    [btn7 addTarget:self action:@selector(btnTest:) forControlEvents:UIControlEventTouchUpInside];
+    [btn7 setTitle:@"加载中（下载进度）" forState:UIControlStateNormal];
+    btn7.tag=1007;
+    [test addSubview:btn7];
+    
 }
 
 
@@ -73,7 +79,7 @@
             [YJProgressHUD showMessage:@"显示文字，1s隐藏" inView:self.view];
             
             //如果想设置N秒隐藏，用这个
-            [YJProgressHUD showMessage:@"显示文字，Ns隐藏" inView:self.view afterDelayTime:3.0];
+            //[YJProgressHUD showMessage:@"显示文字，Ns隐藏" inView:self.view afterDelayTime:3.0];
             break;
         }
         case 1002:{
@@ -81,19 +87,13 @@
             break;
         }
         case 1003:{
-            //菊花
+            //菊花加载
             [YJProgressHUD showProgress:@"加载中..." inView:self.view];
             break;
         }
         case 1004:{
-            //环形进度
-            HUD = [YJProgressHUD showProgressCircle:@"Loading..." inView:nil];
-            
-            //用定时器模拟数据，下面对HUD进行设置进度值即可，正式使用时，获取到afn下载的进度，同理设置就行
-            pro = 0.01;
-            [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(updateProgress) userInfo:nil repeats:YES];
-            
-            
+            //环形加载（图片不喜欢可以自己换）
+            [YJProgressHUD showProgressCircleNoValue:@"加载中..." inView:self.view];
             break;
         }
         case 1005:{
@@ -106,6 +106,15 @@
             [YJProgressHUD showCustomAnimation:@"" withImgArry:[self getRandomImgArry] inview:self.view];
             break;
         }
+        case 1007:{
+            //加载进度，类似下载进度
+            HUD = [YJProgressHUD showProgressCircle:@"Loading..." inView:nil];
+            
+            //用定时器模拟数据，下面对HUD进行设置进度值即可，正式使用时，获取到afn下载的进度，同理设置就行
+            pro = 0.01;
+            [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(updateProgress) userInfo:nil repeats:YES];
+            break;
+        }
         default:
             break;
     }
@@ -114,7 +123,7 @@
     
     
     //下面是设置
-    if (sender.tag == 1004) {
+    if (sender.tag == 1007) {
         return;
     }
     

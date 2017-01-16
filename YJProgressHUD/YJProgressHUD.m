@@ -61,6 +61,20 @@
             [YJProgressHUD shareinstance].hud.mode = MBProgressHUDModeIndeterminate;
             break;
 
+        case YJProgressModeCircle:{
+            [YJProgressHUD shareinstance].hud.mode = MBProgressHUDModeCustomView;
+            UIImageView *img = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"loading"]];
+            CABasicAnimation *animation= [CABasicAnimation animationWithKeyPath:@"transform.rotation"];
+            animation.toValue = [NSNumber numberWithFloat:M_PI*2];
+            animation.duration = 1.0;
+            animation.repeatCount = 100;
+            [img.layer addAnimation:animation forKey:nil];
+            [YJProgressHUD shareinstance].hud.customView = img;
+            
+            
+            break;
+        }
+
         case YJProgressModeCustomAnimation:
             //这里设置动画的背景色
             [YJProgressHUD shareinstance].hud.color = [UIColor yellowColor];
@@ -122,6 +136,11 @@
     hud.labelText = msg;
     return hud;
     
+    
+}
+
++(void)showProgressCircleNoValue:(NSString *)msg inView:(UIView *)view{
+    [self show:msg inView:view mode:YJProgressModeCircle];
     
 }
 

@@ -12,7 +12,8 @@
 typedef enum{
     YJProgressModeOnlyText=10,           //文字
     YJProgressModeLoading,              //加载菊花
-    YJProgressModeCircleLoading,         //加载圆形
+    YJProgressModeCircle,               //加载环形
+    YJProgressModeCircleLoading,         //加载圆形-要处理进度值
     YJProgressModeCustomAnimation,         //自定义加载动画（序列帧实现）
     YJProgressModeSuccess               //成功
     
@@ -41,11 +42,14 @@ typedef enum{
 //显示提示（N秒后消失）
 +(void)showMessage:(NSString *)msg inView:(UIView *)view afterDelayTime:(NSInteger)delay;
 
-//显示进度(转圈)
-+(MBProgressHUD *)showProgressCircle:(NSString *)msg inView:(UIView *)view;
-
 //显示进度(菊花)
 +(void)showProgress:(NSString *)msg inView:(UIView *)view;
+
+//显示进度(环形)
++(void)showProgressCircleNoValue:(NSString *)msg inView:(UIView *)view ;
+
+//显示进度(转圈-要处理数据加载进度)
++(MBProgressHUD *)showProgressCircle:(NSString *)msg inView:(UIView *)view;
 
 //显示成功提示
 +(void)showSuccess:(NSString *)msg inview:(UIView *)view;
