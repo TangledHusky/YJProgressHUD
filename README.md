@@ -1,69 +1,52 @@
 # YJProgressHUD
 
-详细图文教程：http://www.cnblogs.com/yajunLi/p/5822702.html
+![image](http://images2015.cnblogs.com/blog/511196/201701/511196-20170106153445128-335478372.png)
+![image](http://images2015.cnblogs.com/blog/511196/201701/511196-20170106153504847-247454300.png)
+![image](http://images2015.cnblogs.com/blog/511196/201701/511196-20170106153520034-1274453369.png)
+![image](http://images2015.cnblogs.com/blog/511196/201701/511196-20170106153537034-484059152.png)
+![image](http://images2015.cnblogs.com/blog/511196/201701/511196-20170106154427034-712452681.png)
+![image](http://images2015.cnblogs.com/blog/511196/201701/511196-20170106154441816-1500175394.png)
 
-MBProgressHUD的使用，临时总结了几款最常用的使用场景：
+<p><br />1、详细图文教程：<br />http://www.cnblogs.com/yajunLi/p/5822702.html</p>
+<p>&nbsp;</p>
+<p>2、代码集成</p>
+<p>下载Demo，拷贝YJProgressHUD文件即可。</p>
+<p><br />3、使用方法：</p>
+<p>MBProgressHUD的使用，临时总结了几款最常用的使用场景：</p>
+<p>1、提示消息</p>
+<div class="cnblogs_Highlighter">
+<pre class="brush:objc;gutter:true;"> [YJProgressHUD showMessage:@"显示文字，1s隐藏" inView:self.view];
+            
+  //如果想设置N秒隐藏，用这个
+ [YJProgressHUD showMessage:@"显示文字，Ns隐藏" inView:self.view afterDelayTime:3.0];
+</pre>
+</div>
+<p>　　</p>
 
-1、提示消息
+<p>2、加载成功</p>
+<div class="cnblogs_Highlighter">
+<pre class="brush:objc;gutter:true;">[YJProgressHUD showSuccess:@"加载成功" inview:self.view];
+</pre>
+</div>
+<p><span style="line-height: 1.5;">&nbsp;</span></p>
+<p>3、加载中</p>
+<div class="cnblogs_Highlighter">
+<pre class="brush:objc;gutter:true;"> //菊花
+ [YJProgressHUD showProgress:@"加载中..." inView:self.view];
+</pre>
+</div>
+<p><span style="line-height: 1.5;">4、自定义动画（序列帧实现）</span></p>
+<div class="cnblogs_Highlighter">
+<pre class="brush:objc;gutter:true;"> //使用这种，必须保证Assets里，添加了图片组，这里提示内容不写（用@""），就只显示动画，写了内容，是一起显示
+ [YJProgressHUD showCustomAnimation:@"" withImgArry:[self getRandomImgArry] inview:self.view];
+</pre>
+</div>
 
-
-
-用法：
-
-[YJProgressHUD showOnlyText:@"只显示文字" inView:self.view];
-
- 
-
-2、加载成功
-
-
-
-用法：
-
-[YJProgressHUD showSuccess:@"加载成功" inview:self.view];
-
- 
-
-3、加载中
-
- 
-
-用法：
-
-[YJProgressHUD showProgress:@"加载中..." inView:self.view];
-
- 
-
-4、提示消息，N秒隐藏（比1多了设置n秒自动消失）
-
-
-
-用法：
-
-[YJProgressHUD showMessage:@"请输入xxx" inView:self.view afterDelayTime:2.0];
-
- 
-
-5、提示消息(最上层，无需指定显示view)
-
-
-
-用法：
-
- [YJProgressHUD showMsgWithoutView:@"显示在最上层"];
-
- 
-6、自定义动画（序列帧实现）
-
- [YJProgressHUD showCustomAnimation:@"随机动画" withImgArry:imgArry inview:self.view];
-
- 
-
- 
-
-比较简单的几种场景，用起来直接一句话就可搞定。
-
-另外：还有隐藏提示框等方法：
-
-[YJProgressHUD hide];
+<p><span style="line-height: 1.5;">5、隐藏提示框</span></p>
+<div class="cnblogs_Highlighter">
+<pre class="brush:objc;gutter:true;">[YJProgressHUD hide];
+</pre>
+</div>
+<p>　　</p>
+<p>&nbsp;</p>
 
