@@ -6,6 +6,8 @@
 ![image](http://images2015.cnblogs.com/blog/511196/201701/511196-20170106153537034-484059152.png)
 ![image](http://images2015.cnblogs.com/blog/511196/201701/511196-20170106154427034-712452681.png)
 ![image](http://images2015.cnblogs.com/blog/511196/201701/511196-20170106154441816-1500175394.png)
+![image](http://images2015.cnblogs.com/blog/511196/201701/511196-20170116152146349-1091794769.png)
+![image](http://images2015.cnblogs.com/blog/511196/201701/511196-20170116154413177-1499767867.png)
 
 <p><br />1、详细图文教程：<br />http://www.cnblogs.com/yajunLi/p/5822702.html</p>
 <p>&nbsp;</p>
@@ -37,16 +39,4 @@
 </div>
 <p><span style="line-height: 1.5;">4、自定义动画（序列帧实现）</span></p>
 <div class="cnblogs_Highlighter">
-<pre class="brush:objc;gutter:true;"> //使用这种，必须保证Assets里，添加了图片组，这里提示内容不写（用@""），就只显示动画，写了内容，是一起显示
- [YJProgressHUD showCustomAnimation:@"" withImgArry:[self getRandomImgArry] inview:self.view];
-</pre>
-</div>
-
-<p><span style="line-height: 1.5;">5、隐藏提示框</span></p>
-<div class="cnblogs_Highlighter">
-<pre class="brush:objc;gutter:true;">[YJProgressHUD hide];
-</pre>
-</div>
-<p>　　</p>
-<p>&nbsp;</p>
-
+<pre class="brush:objc;gutter:true;"> //使用这种，必须保证Assets里，添加了图片组，这里提示内容不写
