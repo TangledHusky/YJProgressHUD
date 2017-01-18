@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
  
   s.name         = "YJProgressHUD"
-  s.version      = "1.0.2"
+  s.version      = "1.0.3"
   s.summary      = "easy use YJProgressHUD on iOS"
   s.description  = "easy use YJProgressHUD on iOS，use by readme"
  
@@ -12,7 +12,6 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "6.0"
   s.source       = { :git => "https://github.com/TangledHusky/YJProgressHUD.git", :tag => "v#{s.version}" }
   s.source_files  = "YJProgressHUDK/*.{h,m}"
-  #依赖关系，该项目所依赖的其他库，如果有多个需要填写多个s.dependency
   s.dependency "MBProgressHUD"  
-  s.resources = [YJProgressHUD/*.xcassets']
+  s.resources = "YJProgressHUD/*.xcassets"
 end
