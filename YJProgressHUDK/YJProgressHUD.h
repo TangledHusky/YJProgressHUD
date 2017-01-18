@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <MBProgressHUD/MBProgressHUD.h>
 
-typedef enum{
-    YJProgressModeOnlyText=10,           //文字
+typedef NS_ENUM(NSInteger,YJProgressMode){
+    YJProgressModeOnlyText,           //文字
     YJProgressModeLoading,               //加载菊花
     YJProgressModeCircle,                //加载环形
     YJProgressModeCircleLoading,         //加载圆形-要处理进度值
@@ -18,7 +18,7 @@ typedef enum{
     YJProgressModeSuccess,                //成功
     YJProgressModeCustomerImage           //自定义图片
     
-}YJProgressMode;
+};
 
 @interface YJProgressHUD : NSObject
 

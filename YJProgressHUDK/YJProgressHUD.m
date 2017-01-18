@@ -44,7 +44,7 @@
     //[YJProgressHUD shareinstance].hud.dimBackground = YES;    //是否显示透明背景
     
     //是否设置黑色背景，这两句配合使用
-    [YJProgressHUD shareinstance].hud.color = [UIColor blackColor];
+    [YJProgressHUD shareinstance].hud.bezelView.color = [UIColor blackColor];
     [YJProgressHUD shareinstance].hud.contentColor = [UIColor whiteColor];
     
     [[YJProgressHUD shareinstance].hud setMargin:10];
@@ -81,7 +81,7 @@
 
         case YJProgressModeCustomAnimation:
             //这里设置动画的背景色
-            [YJProgressHUD shareinstance].hud.color = [UIColor yellowColor];
+            [YJProgressHUD shareinstance].hud.bezelView.color = [UIColor yellowColor];
             
             
             [YJProgressHUD shareinstance].hud.mode = MBProgressHUDModeCustomView;
@@ -143,7 +143,7 @@
     if (view == nil) view = (UIView*)[UIApplication sharedApplication].delegate.window;
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
     hud.mode = MBProgressHUDModeAnnularDeterminate;
-    hud.labelText = msg;
+    hud.detailsLabel.text = msg;
     return hud;
     
     

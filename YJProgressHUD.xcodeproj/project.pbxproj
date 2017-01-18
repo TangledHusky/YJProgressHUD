@@ -16,7 +16,6 @@
 		FA8338101D7582E400FA2C9E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA83380E1D7582E400FA2C9E /* LaunchScreen.storyboard */; };
 		FA83381B1D7582E400FA2C9E /* YJProgressHUDTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA83381A1D7582E400FA2C9E /* YJProgressHUDTests.m */; };
 		FA8338261D7582E400FA2C9E /* YJProgressHUDUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8338251D7582E400FA2C9E /* YJProgressHUDUITests.m */; };
-		FA8338351D75830400FA2C9E /* YJProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8338341D75830400FA2C9E /* YJProgressHUD.m */; };
 		FAED9C1A1E2F3CEB009540B9 /* YJProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = FAED9C191E2F3CEB009540B9 /* YJProgressHUD.m */; };
 		FAED9C1E1E2F3D31009540B9 /* images.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FAED9C1D1E2F3D31009540B9 /* images.bundle */; };
 /* End PBXBuildFile section */
@@ -58,8 +57,6 @@
 		FA8338211D7582E400FA2C9E /* YJProgressHUDUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YJProgressHUDUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA8338251D7582E400FA2C9E /* YJProgressHUDUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YJProgressHUDUITests.m; sourceTree = "<group>"; };
 		FA8338271D7582E400FA2C9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FA8338331D75830400FA2C9E /* YJProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJProgressHUD.h; sourceTree = "<group>"; };
-		FA8338341D75830400FA2C9E /* YJProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJProgressHUD.m; sourceTree = "<group>"; };
 		FAED9C181E2F3CEB009540B9 /* YJProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJProgressHUD.h; sourceTree = "<group>"; };
 		FAED9C191E2F3CEB009540B9 /* YJProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJProgressHUD.m; sourceTree = "<group>"; };
 		FAED9C1D1E2F3D31009540B9 /* images.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = images.bundle; sourceTree = "<group>"; };
@@ -134,8 +131,6 @@
 		FA8337FF1D7582E400FA2C9E /* YJProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
-				FA8338331D75830400FA2C9E /* YJProgressHUD.h */,
-				FA8338341D75830400FA2C9E /* YJProgressHUD.m */,
 				FA8338031D7582E400FA2C9E /* AppDelegate.h */,
 				FA8338041D7582E400FA2C9E /* AppDelegate.m */,
 				FA8338061D7582E400FA2C9E /* ViewController.h */,
@@ -371,7 +366,6 @@
 				FAED9C1A1E2F3CEB009540B9 /* YJProgressHUD.m in Sources */,
 				FA8338051D7582E400FA2C9E /* AppDelegate.m in Sources */,
 				FA8338021D7582E400FA2C9E /* main.m in Sources */,
-				FA8338351D75830400FA2C9E /* YJProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,7 +457,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -501,7 +495,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -514,6 +508,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = YJProgressHUD/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = www.zyyj.com.cn.YJProgressHUD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -526,7 +521,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = YJProgressHUD/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = www.zyyj.com.cn.YJProgressHUD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
