@@ -17,6 +17,8 @@
 		FA83381B1D7582E400FA2C9E /* YJProgressHUDTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA83381A1D7582E400FA2C9E /* YJProgressHUDTests.m */; };
 		FA8338261D7582E400FA2C9E /* YJProgressHUDUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8338251D7582E400FA2C9E /* YJProgressHUDUITests.m */; };
 		FA8338351D75830400FA2C9E /* YJProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8338341D75830400FA2C9E /* YJProgressHUD.m */; };
+		FAED9C1A1E2F3CEB009540B9 /* YJProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = FAED9C191E2F3CEB009540B9 /* YJProgressHUD.m */; };
+		FAED9C1E1E2F3D31009540B9 /* images.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FAED9C1D1E2F3D31009540B9 /* images.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,9 @@
 		FA8338271D7582E400FA2C9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA8338331D75830400FA2C9E /* YJProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJProgressHUD.h; sourceTree = "<group>"; };
 		FA8338341D75830400FA2C9E /* YJProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJProgressHUD.m; sourceTree = "<group>"; };
+		FAED9C181E2F3CEB009540B9 /* YJProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJProgressHUD.h; sourceTree = "<group>"; };
+		FAED9C191E2F3CEB009540B9 /* YJProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJProgressHUD.m; sourceTree = "<group>"; };
+		FAED9C1D1E2F3D31009540B9 /* images.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = images.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +111,7 @@
 		FA8337F41D7582E400FA2C9E = {
 			isa = PBXGroup;
 			children = (
+				FAED9C171E2F3CEB009540B9 /* YJProgressHUDK */,
 				FA8337FF1D7582E400FA2C9E /* YJProgressHUD */,
 				FA8338191D7582E400FA2C9E /* YJProgressHUDTests */,
 				FA8338241D7582E400FA2C9E /* YJProgressHUDUITests */,
@@ -167,6 +173,16 @@
 				FA8338271D7582E400FA2C9E /* Info.plist */,
 			);
 			path = YJProgressHUDUITests;
+			sourceTree = "<group>";
+		};
+		FAED9C171E2F3CEB009540B9 /* YJProgressHUDK */ = {
+			isa = PBXGroup;
+			children = (
+				FAED9C181E2F3CEB009540B9 /* YJProgressHUD.h */,
+				FAED9C191E2F3CEB009540B9 /* YJProgressHUD.m */,
+				FAED9C1D1E2F3D31009540B9 /* images.bundle */,
+			);
+			path = YJProgressHUDK;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,6 +294,7 @@
 				FA8338101D7582E400FA2C9E /* LaunchScreen.storyboard in Resources */,
 				FA83380D1D7582E400FA2C9E /* Assets.xcassets in Resources */,
 				FA83380B1D7582E400FA2C9E /* Main.storyboard in Resources */,
+				FAED9C1E1E2F3D31009540B9 /* images.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,6 +368,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA8338081D7582E400FA2C9E /* ViewController.m in Sources */,
+				FAED9C1A1E2F3CEB009540B9 /* YJProgressHUD.m in Sources */,
 				FA8338051D7582E400FA2C9E /* AppDelegate.m in Sources */,
 				FA8338021D7582E400FA2C9E /* main.m in Sources */,
 				FA8338351D75830400FA2C9E /* YJProgressHUD.m in Sources */,
