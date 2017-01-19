@@ -12,7 +12,7 @@
 <p><br />1、详细图文教程：<br />http://www.cnblogs.com/yajunLi/p/5822702.html</p>
 <p>&nbsp;</p>
 <p>2、代码集成</p>
-<p>pod集成： pod YJProgressHUD</p>
+<p>pod集成： <code>pod 'YJProgressHUD'</code></p>
 <p>Demo集成：拷贝YJProgressHUD文件即可。</p>
 
 <p><br />3、使用方法：</p>
