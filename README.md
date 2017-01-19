@@ -12,7 +12,9 @@
 <p><br />1、详细图文教程：<br />http://www.cnblogs.com/yajunLi/p/5822702.html</p>
 <p>&nbsp;</p>
 <p>2、代码集成</p>
-<p>下载Demo，拷贝YJProgressHUD文件即可。</p>
+<p>pod集成： pod YJProgressHUD</p>
+<p>Demo集成：拷贝YJProgressHUD文件即可。</p>
+
 <p><br />3、使用方法：</p>
 <p>MBProgressHUD的使用，临时总结了几款最常用的使用场景：</p>
 <p>1、提示消息</p>
